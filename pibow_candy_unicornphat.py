@@ -16,9 +16,6 @@ unicornhat.set_layout(unicornhat.PHAT)
 unicornhat.brightness(0.5)
 unicornhat.rotation(180)
 
-def get_color():
-    return int(random.randint(1, 255))
-
 R = (255, 105, 97)
 O = (255, 179, 71)
 Y = (253, 253, 150)
