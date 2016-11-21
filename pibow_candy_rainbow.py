@@ -1,6 +1,6 @@
 #!/usr/bin/python
 ################################################################
-#                         Pibow Candy                          #
+#                     Pibow Candy Rainnbow                     #
 ################################################################
 # Description:                                                 #
 # This is a modification of my Moving Rainbow program. I just  #
