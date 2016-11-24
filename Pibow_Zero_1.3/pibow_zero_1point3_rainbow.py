@@ -1,5 +1,5 @@
 ################################################################
-#                      Pibow Zero 1.3                          #
+#                     Pibow Zero 1.3                           #
 ################################################################
 # Description:                                                 #
 # It's like my other moving rainbow programs except that it    #
