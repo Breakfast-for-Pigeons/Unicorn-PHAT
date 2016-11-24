@@ -1,2 +1,2 @@
 # Unicorn-PHAT
-Contains my programs for the Unicorn PHAT
+My programs for the Pimoroni Unicorn pHAT
