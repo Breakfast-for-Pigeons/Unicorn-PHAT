@@ -7,7 +7,7 @@
 # Author: Paul Ryan                                            #
 #                                                              #
 ################################################################
-#!/usr/bin/python
+#!/usr/bin/env python
 import unicornhat, signal, time, random
 
 unicornhat.set_layout(unicornhat.PHAT)
