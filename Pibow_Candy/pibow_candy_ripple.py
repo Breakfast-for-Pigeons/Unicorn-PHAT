@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 ################################################################
 #                     Pibow Candy Ripple                       #
 ################################################################
@@ -7,7 +8,7 @@
 # Author: Paul Ryan                                            #
 #                                                              #
 ################################################################
-#!/usr/bin/env python
+
 import unicornhat, signal, time, random
 
 unicornhat.set_layout(unicornhat.PHAT)
