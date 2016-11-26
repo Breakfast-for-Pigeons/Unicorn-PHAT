@@ -1,10 +1,9 @@
 #!/usr/bin/env python
 ################################################################
-#                     Pibow Candy Ripple 3                     #
+#                    Pibow Candy Ripple 3                      #
 ################################################################
 # Description:                                                 #
-# This is a modification of my Moving Rainbow program. I just  #
-# changed the colors to pastels to match the Pibow Candy case. #
+# This program "ripples" the Pibow Candy rainbow.              #
 #                                                              #
 # Author: Paul Ryan                                            #
 #                                                              #
