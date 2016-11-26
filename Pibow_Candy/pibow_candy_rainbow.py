@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 ################################################################
 #                  Pibow Candy Rainbow                         #
 ################################################################
@@ -8,7 +9,6 @@
 # Author: Paul Ryan                                            #
 #                                                              #
 ################################################################
-#!/usr/bin/env python
 import unicornhat, signal, time, random
 unicornhat.set_layout(unicornhat.PHAT)
 unicornhat.brightness(0.5)
