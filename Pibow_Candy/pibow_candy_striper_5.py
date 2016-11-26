@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 ################################################################
-#                    Pibow Candy Striper                       #
+#                    Pibow Candy Striper 5                     #
 ################################################################
 # Description:                                                 #
 # This program lights up each column of the Unicorn pHAT with  #
@@ -30,7 +30,7 @@ x7_color_tuple  = (244, 154, 194)
 def get_color(x_color_tuple): 
     return int(x_color_tuple[0]), int(x_color_tuple[1]), int(x_color_tuple[2]) 
     
-def pibow_candy_striper_1():
+def pibow_candy_striper_5():
 	
 	unicornhat.clear()
 	x_coordinate_list = x_coordinates
@@ -65,7 +65,7 @@ def pibow_candy_striper_1():
 
 def main():
 	while True:
-		pibow_candy_striper_1()
+		pibow_candy_striper_5()
 		
 if __name__ == '__main__':
     main()
