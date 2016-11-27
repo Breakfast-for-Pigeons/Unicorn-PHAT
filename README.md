@@ -1,5 +1,4 @@
-# Unicorn-PHAT
-My programs for the Pimoroni Unicorn pHAT
+These are my programs for the Pimoroni Unicorn pHAT.
 
 # American flag
 Contains programs featuring the American flag
