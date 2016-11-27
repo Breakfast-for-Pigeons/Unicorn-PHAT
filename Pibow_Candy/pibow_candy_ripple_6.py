@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 ################################################################
-#                    Pibow Candy Ripple 4                      #
+#                    Pibow Candy Ripple 6                      #
 ################################################################
 # Description:                                                 #
 # This program "ripples" the Pibow Candy rainbow.              #
