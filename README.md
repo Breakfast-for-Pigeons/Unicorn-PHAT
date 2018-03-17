@@ -16,3 +16,7 @@ These programs will run on any version of the Raspberry Pi. They just feature on
 # Pictures:
 ![rasperry_pi_0_v1 2_case](https://user-images.githubusercontent.com/13591438/37558940-34804df0-29ea-11e8-955a-6906818bde12.JPG)
 A UnicornPHAT on a Raspberry Pi 0 (version 1.2) in a Pimoroni Pibow Zero case.
+
+
+![rasperry_pi_0_v1 3_case](https://user-images.githubusercontent.com/13591438/37559909-4b6ac3d0-29fc-11e8-9132-b27221b87788.JPG)
+A UnicornPHAT on a Raspberry Pi 0 (version 1.3) in a Pimoroni Pibow Zero case.
