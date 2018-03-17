@@ -12,6 +12,8 @@ These programs will run on any version of the Raspberry Pi. They just feature on
 # Pibow Zero 1.3
 These programs will run on any version of the Raspberry Pi. They just feature only the colors of the case designed for the Raspberry Pi Zero 1.3 (the one with the camera port).
 
+# Pibow Zero W
+These programs will run on any version of the Raspberry Pi. They just feature only the colors of the case designed for the Raspberry Pi Zero W.
 
 # Pictures:
 ![rasperry_pi_0_v1 2_case](https://user-images.githubusercontent.com/13591438/37558940-34804df0-29ea-11e8-955a-6906818bde12.JPG)
