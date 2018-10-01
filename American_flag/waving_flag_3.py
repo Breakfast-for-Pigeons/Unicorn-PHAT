@@ -1,208 +1,274 @@
-################################################################
-#                     Waving Flag 3                            #
-################################################################
-# Description:                                                 #
-# The title pretty much explains it.                           #
-#                                                              #
-# Author: Paul Ryan                                            #
-#                                                              #
-################################################################
-#!/usr/bin/python
-import unicornhat, signal, time, random
+#!/usr/bin/python3
+"""
+Waving Flag 3
+
+This program lights up the Pimoroni Unicorn PHAT with the colors of the
+American Flag and makes the flag appear to be waving in the wind. This
+version waves the flag diagonally instead of horizontally.
+
+....................
+
+Functions:
+- display_flag: Lights up the LEDs to create a picture of the
+      American flag.
+- waving_flag: Makes the flag appear to be waving in the wind.
+- stop: Print exit message and turn OFF the UnicornHAT
+
+....................
+
+Author: Paul Ryan
+
+This program was written on a Raspberry Pi using the Geany IDE.
+"""
+########################################################################
+#                          Import modules                              #
+########################################################################
+
+from time import sleep
+import unicornhat
+from print_unicornphat_header import print_unicornphat_header
+
+########################################################################
+#                           Initialize                                 #
+########################################################################
 
 unicornhat.set_layout(unicornhat.PHAT)
 unicornhat.brightness(0.5)
 unicornhat.rotation(180)
 
-R = (255,0,0)
+R = (255, 0, 0)
 W = (255, 255, 255)
-B = (0,0,255)
-off = (0, 0, 0)
+B = (0, 0, 255)
+OFF = (0, 0, 0)
 R2 = (128, 0, 0)
 W2 = (128, 128, 128)
 B2 = (0, 0, 128)
 
-flag = [
-    [B, B, B, B, R, R, R, R], 
-    [B, B, B, B, W, W, W, W], 
-    [R, R, R, R, R, R, R, R], 
-    [W, W, W, W, W, W, W, W], 
-    # Don't use the 4 rows below for UnicornPHAT, use only for UnicornHAT
-    [off, off, off, off, off, off, off, off], 
-    [off, off, off, off, off, off, off, off], 
-    [off, off, off, off, off, off, off, off], 
-    [off, off, off, off, off, off, off, off]
-]
-
-wave00 = [
-    [B, B, B, B, R, R, R, R], 
-    [B, B, B, B, W, W, W, W], 
-    [R, R, R, R, R, R, R, R], 
-    [W2, W, W, W, W, W, W, W], 
-    # Don't use the 4 rows below for UnicornPHAT, use only for UnicornHAT
-    [off, off, off, off, off, off, off, off], 
-    [off, off, off, off, off, off, off, off], 
-    [off, off, off, off, off, off, off, off], 
-    [off, off, off, off, off, off, off, off]
-]
-
-wave01 = [
-    [B, B, B, B, R, R, R, R], 
-    [B, B, B, B, W, W, W, W], 
-    [R2, R, R, R, R, R, R, R], 
-    [W, W2, W, W, W, W, W, W], 
-    # Don't use the 4 rows below for UnicornPHAT, use only for UnicornHAT
-    [off, off, off, off, off, off, off, off], 
-    [off, off, off, off, off, off, off, off], 
-    [off, off, off, off, off, off, off, off], 
-    [off, off, off, off, off, off, off, off]
-]
-
-wave02 = [
-    [B, B, B, B, R, R, R, R], 
-    [B2, B, B, B, W, W, W, W], 
-    [R, R2, R, R, R, R, R, R], 
-    [W, W, W2, W, W, W, W, W], 
-    # Don't use the 4 rows below for UnicornPHAT, use only for UnicornHAT
-    [off, off, off, off, off, off, off, off], 
-    [off, off, off, off, off, off, off, off], 
-    [off, off, off, off, off, off, off, off], 
-    [off, off, off, off, off, off, off, off]
-]
-
-wave03 = [
-    [B2, B, B, B, R, R, R, R], 
-    [B, B2, B, B, W, W, W, W], 
-    [R, R, R2, R, R, R, R, R], 
-    [W, W, W, W2, W, W, W, W], 
-    # Don't use the 4 rows below for UnicornPHAT, use only for UnicornHAT
-    [off, off, off, off, off, off, off, off], 
-    [off, off, off, off, off, off, off, off], 
-    [off, off, off, off, off, off, off, off], 
-    [off, off, off, off, off, off, off, off]
-]
-
-wave04 = [
-    [B, B2, B, B, R, R, R, R], 
-    [B, B, B2, B, W, W, W, W], 
-    [R, R, R, R2, R, R, R, R], 
-    [W, W, W, W, W2, W, W, W], 
-    # Don't use the 4 rows below for UnicornPHAT, use only for UnicornHAT
-    [off, off, off, off, off, off, off, off], 
-    [off, off, off, off, off, off, off, off], 
-    [off, off, off, off, off, off, off, off], 
-    [off, off, off, off, off, off, off, off]
-]
-
-wave05 = [
-    [B, B, B2, B, R, R, R, R], 
-    [B, B, B, B2, W, W, W, W], 
-    [R, R, R, R, R2, R, R, R], 
-    [W, W, W, W, W, W2, W, W], 
-    # Don't use the 4 rows below for UnicornPHAT, use only for UnicornHAT
-    [off, off, off, off, off, off, off, off], 
-    [off, off, off, off, off, off, off, off], 
-    [off, off, off, off, off, off, off, off], 
-    [off, off, off, off, off, off, off, off]
-]
-
-wave06 = [
-    [B, B, B, B2, R, R, R, R], 
-    [B, B, B, B, W2, W, W, W], 
-    [R, R, R, R, R, R2, R, R], 
-    [W, W, W, W, W, W, W2, W], 
-    # Don't use the 4 rows below for UnicornPHAT, use only for UnicornHAT
-    [off, off, off, off, off, off, off, off], 
-    [off, off, off, off, off, off, off, off], 
-    [off, off, off, off, off, off, off, off], 
-    [off, off, off, off, off, off, off, off]
-]
+########################################################################
+#                            Functions                                 #
+########################################################################
 
 
-wave07 = [
-    [B, B, B, B, R2, R, R, R], 
-    [B, B, B, B, W, W2, W, W], 
-    [R, R, R, R, R, R, R2, R], 
-    [W, W, W, W, W, W, W, W2], 
-    # Don't use the 4 rows below for UnicornPHAT, use only for UnicornHAT
-    [off, off, off, off, off, off, off, off], 
-    [off, off, off, off, off, off, off, off], 
-    [off, off, off, off, off, off, off, off], 
-    [off, off, off, off, off, off, off, off]
-]
+def main():
+    """
+    This is the main function
+    """
 
-wave08 = [
-    [B, B, B, B, R, R2, R, R], 
-    [B, B, B, B, W, W, W2, W], 
-    [R, R, R, R, R, R, R, R2], 
-    [W, W, W, W, W, W, W, W], 
-    # Don't use the 4 rows below for UnicornPHAT, use only for UnicornHAT
-    [off, off, off, off, off, off, off, off], 
-    [off, off, off, off, off, off, off, off], 
-    [off, off, off, off, off, off, off, off], 
-    [off, off, off, off, off, off, off, off]
-]
+    print_unicornphat_header()
 
-wave09 = [
-    [B, B, B, B, R, R, R2, R], 
-    [B, B, B, B, W, W, W, W2], 
-    [R, R, R, R, R, R, R, R], 
-    [W, W, W, W, W, W, W, W], 
-    # Don't use the 4 rows below for UnicornPHAT, use only for UnicornHAT
-    [off, off, off, off, off, off, off, off], 
-    [off, off, off, off, off, off, off, off], 
-    [off, off, off, off, off, off, off, off], 
-    [off, off, off, off, off, off, off, off]
-]
+    # Force white text after selecting random colored header
+    print("\033[1;37;40mPress Ctrl-C to stop the program.")
 
-wave10 = [
-    [B, B, B, B, R, R, R, R2], 
-    [B, B, B, B, W, W, W, W], 
-    [R, R, R, R, R, R, R, R], 
-    [W, W, W, W, W, W, W, W], 
-    # Don't use the 4 rows below for UnicornPHAT, use only for UnicornHAT
-    [off, off, off, off, off, off, off, off], 
-    [off, off, off, off, off, off, off, off], 
-    [off, off, off, off, off, off, off, off], 
-    [off, off, off, off, off, off, off, off]
-]
+    try:
+        while True:
+            display_flag()
+            waving_flag()
+    except KeyboardInterrupt:
+        stop()
 
 
-while True:
+def display_flag():
+    """
+    The function lights up the LEDs to create a picture of the
+    American flag.
+    """
+
+    flag = [
+        [B, B, B, B, R, R, R, R],
+        [B, B, B, B, W, W, W, W],
+        [R, R, R, R, R, R, R, R],
+        [W, W, W, W, W, W, W, W],
+        # Don't use the 4 rows below for UnicornPHAT
+        [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
+        [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
+        [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
+        [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF]
+        ]
+
     unicornhat.set_pixels(flag)
     unicornhat.show()
-    time.sleep(5.0)
+    sleep(3.0)
+
+
+def waving_flag():
+    """
+    The function makes the flag appear to be waving in the wind.
+    """
+
+    wave00 = [
+        [B, B, B, B, R, R, R, R],
+        [B, B, B, B, W, W, W, W],
+        [R, R, R, R, R, R, R, R],
+        [W2, W, W, W, W, W, W, W],
+        # Don't use the 4 rows below for UnicornPHAT
+        [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
+        [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
+        [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
+        [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF]
+        ]
+
+    wave01 = [
+        [B, B, B, B, R, R, R, R],
+        [B, B, B, B, W, W, W, W],
+        [R2, R, R, R, R, R, R, R],
+        [W, W2, W, W, W, W, W, W],
+        # Don't use the 4 rows below for UnicornPHAT
+        [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
+        [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
+        [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
+        [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF]
+        ]
+
+    wave02 = [
+        [B, B, B, B, R, R, R, R],
+        [B2, B, B, B, W, W, W, W],
+        [R, R2, R, R, R, R, R, R],
+        [W, W, W2, W, W, W, W, W],
+        # Don't use the 4 rows below for UnicornPHAT
+        [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
+        [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
+        [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
+        [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF]
+        ]
+
+    wave03 = [
+        [B2, B, B, B, R, R, R, R],
+        [B, B2, B, B, W, W, W, W],
+        [R, R, R2, R, R, R, R, R],
+        [W, W, W, W2, W, W, W, W],
+        # Don't use the 4 rows below for UnicornPHAT
+        [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
+        [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
+        [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
+        [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF]
+        ]
+
+    wave04 = [
+        [B, B2, B, B, R, R, R, R],
+        [B, B, B2, B, W, W, W, W],
+        [R, R, R, R2, R, R, R, R],
+        [W, W, W, W, W2, W, W, W],
+        # Don't use the 4 rows below for UnicornPHAT
+        [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
+        [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
+        [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
+        [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF]
+        ]
+
+    wave05 = [
+        [B, B, B2, B, R, R, R, R],
+        [B, B, B, B2, W, W, W, W],
+        [R, R, R, R, R2, R, R, R],
+        [W, W, W, W, W, W2, W, W],
+        # Don't use the 4 rows below for UnicornPHAT
+        [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
+        [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
+        [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
+        [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF]
+        ]
+
+    wave06 = [
+        [B, B, B, B2, R, R, R, R],
+        [B, B, B, B, W2, W, W, W],
+        [R, R, R, R, R, R2, R, R],
+        [W, W, W, W, W, W, W2, W],
+        # Don't use the 4 rows below for UnicornPHAT
+        [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
+        [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
+        [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
+        [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF]
+        ]
+
+    wave07 = [
+        [B, B, B, B, R2, R, R, R],
+        [B, B, B, B, W, W2, W, W],
+        [R, R, R, R, R, R, R2, R],
+        [W, W, W, W, W, W, W, W2],
+        # Don't use the 4 rows below for UnicornPHAT
+        [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
+        [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
+        [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
+        [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF]
+        ]
+
+    wave08 = [
+        [B, B, B, B, R, R2, R, R],
+        [B, B, B, B, W, W, W2, W],
+        [R, R, R, R, R, R, R, R2],
+        [W, W, W, W, W, W, W, W],
+        # Don't use the 4 rows below for UnicornPHAT
+        [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
+        [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
+        [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
+        [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF]
+        ]
+
+    wave09 = [
+        [B, B, B, B, R, R, R2, R],
+        [B, B, B, B, W, W, W, W2],
+        [R, R, R, R, R, R, R, R],
+        [W, W, W, W, W, W, W, W],
+        # Don't use the 4 rows below for UnicornPHAT
+        [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
+        [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
+        [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
+        [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF]
+        ]
+
+    wave10 = [
+        [B, B, B, B, R, R, R, R2],
+        [B, B, B, B, W, W, W, W],
+        [R, R, R, R, R, R, R, R],
+        [W, W, W, W, W, W, W, W],
+        # Don't use the 4 rows below for UnicornPHAT
+        [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
+        [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
+        [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
+        [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF]
+        ]
+
     unicornhat.set_pixels(wave00)
     unicornhat.show()
-    time.sleep(0.05)
+    sleep(0.05)
     unicornhat.set_pixels(wave01)
     unicornhat.show()
-    time.sleep(0.05)
+    sleep(0.05)
     unicornhat.set_pixels(wave02)
     unicornhat.show()
-    time.sleep(0.05)
+    sleep(0.05)
     unicornhat.set_pixels(wave03)
     unicornhat.show()
-    time.sleep(0.05)
+    sleep(0.05)
     unicornhat.set_pixels(wave04)
     unicornhat.show()
-    time.sleep(0.05)
-    signal.pause
+    sleep(0.05)
     unicornhat.set_pixels(wave05)
     unicornhat.show()
-    time.sleep(0.05)
+    sleep(0.05)
     unicornhat.set_pixels(wave06)
     unicornhat.show()
-    time.sleep(0.05)
+    sleep(0.05)
     unicornhat.set_pixels(wave07)
     unicornhat.show()
-    time.sleep(0.05)
+    sleep(0.05)
     unicornhat.set_pixels(wave08)
     unicornhat.show()
-    time.sleep(0.05)
+    sleep(0.05)
     unicornhat.set_pixels(wave09)
     unicornhat.show()
-    time.sleep(0.05)
+    sleep(0.05)
     unicornhat.set_pixels(wave10)
     unicornhat.show()
-    time.sleep(0.05)
+    sleep(0.05)
+
+
+def stop():
+    """
+    Print exit message and turn off the UnicornHAT
+    """
+    print("\nExiting program.")
+    unicornhat.off()
+
+
+if __name__ == '__main__':
+    main()
