@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """
-American Flag
+Waving Flag 1
 
 This program lights up the Pimoroni Unicorn PHAT with the colors of the
-American Flag.
+American Flag and makes the flag appear to be waving in the wind.
 
 ....................
 
