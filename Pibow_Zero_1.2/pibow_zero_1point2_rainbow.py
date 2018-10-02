@@ -2,7 +2,7 @@
 """
 Moving Rainbow - Pibow Zero 1.2
 
-This is a moving rainbow program that only display the colors of the
+This is a moving rainbow program that only displays the colors of the
 Pibow Zero case for the Raspberry Pi Zero 1.2
 
 ....................
