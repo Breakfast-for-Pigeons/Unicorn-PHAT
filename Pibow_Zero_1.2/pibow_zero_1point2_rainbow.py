@@ -8,8 +8,10 @@ Pibow Zero case for the Raspberry Pi Zero 1.2
 ....................
 
 Functions:
+- display_rainbow: Lights up the LEDs to create a rainbow using only the
+    colors of the Pibow Zero 1.2 case. The rainbow is static
 - moving_rainbow: Lights up the LEDs to create a rainbow using only the
-    colors of the Pibow Zero 1.2 case
+    colors of the Pibow Zero 1.2 case. The rainbow "moves."
 - stop: Print exit message and turn off the UnicornHAT
 
 ....................
