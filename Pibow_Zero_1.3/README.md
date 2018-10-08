@@ -1,5 +1,5 @@
 These programs use only the colors of the Pimoroni Pibow Zero case that was designed for the the Raspberry Pi Zero version 1.3.
-Yes, you can run these programs on any version of the Raspberry Pi. I just used the color scheme of the original Pibow Zero 1.3 case: Red, Orange, Yellow, and White. White represents the clear layer of the case.
+Yes, you can run these programs on any version of the Raspberry Pi. I just used the color scheme of the Pibow Zero 1.3 case: Red, Orange, Yellow, and White. White represents the clear layer of the case.
 
 You can use the **./** before any of the files (except for bfp_unicornphat) to run the programs. For example:
 
