@@ -3,6 +3,6 @@ Yes, you can run these programs on any version of the Raspberry Pi. I just used 
 
 You can use the **./** before any of the files (except for bfp_unicornphat) to run the programs. For example
 
-< ./pibow_zero_12_demo.py >
+` ./pibow_zero_12_demo.py `
 
 
