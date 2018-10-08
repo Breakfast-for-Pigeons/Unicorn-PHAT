@@ -5,4 +5,5 @@ You can use the **./** before any of the files (except for bfp_unicornphat) to r
 
 ` ./pibow_zero_12_demo.py `
 
-
+# Demo
+The demo program is a collection of 54 programs. It will randomly select one of the programs and run it for 10 seconds. It will keep doing this until the user presses Ctrl-C.
