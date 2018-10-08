@@ -4,7 +4,7 @@ Blue, Purple, Red, and White. White represents the clear layer of the case.
 
 You can use the **./** before any of the files (except for bfp_unicornphat) to run the programs. For example:
 
-` ./pibow_zero_w_demo.py `
+` sudo ./pibow_zero_12_demo.py `
 
 # Demo
 The demo program is a collection of 54 programs. It will randomly select one of the programs and run it for 10 seconds. 
