@@ -45,9 +45,11 @@ def diagonal_ripple_2():
         rainbow05, rainbow04, rainbow03, rainbow02, \
         rainbow01 = get_diagonal_ripple_rainbows_1()
 
-    ripple_diagonally(rainbow00, rainbow01, rainbow02, rainbow03,
-                      rainbow04, rainbow05, rainbow06, rainbow07,
-                      rainbow08, rainbow09, rainbow10, rainbow11)
+    diagonal_rainbows_2 = [rainbow01, rainbow02, rainbow03, rainbow04,
+                           rainbow05, rainbow06, rainbow07, rainbow08,
+                           rainbow09, rainbow10, rainbow11]
+
+    ripple_diagonally(rainbow00, diagonal_rainbows_2)
 
 
 if __name__ == '__main__':
