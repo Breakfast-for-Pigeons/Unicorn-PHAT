@@ -35,8 +35,8 @@ from bfp_unicornphat import ripple_vertically
 
 def vertical_ripple_2():
     """
-    Gets 5 rainbows, assigns them in reverse order, and sends them to
-    the ripple diagonally function
+    Gets 5 rainbows, assigns them in reverse order, and sends them as an
+    argument to the ripple diagonally function
     """
 
     rainbow00 = get_vertical_rainbow_00()
@@ -44,8 +44,9 @@ def vertical_ripple_2():
     rainbow04, rainbow03, \
         rainbow02, rainbow01, = get_vertical_ripple_rainbows()
 
-    ripple_vertically(rainbow00, rainbow01, rainbow02, rainbow03,
-                      rainbow04)
+    vr_rainbows_2 = (rainbow01, rainbow02, rainbow03, rainbow04)
+
+    ripple_vertically(rainbow00, vr_rainbows_2)
 
 
 if __name__ == '__main__':
