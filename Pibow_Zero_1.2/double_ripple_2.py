@@ -35,7 +35,7 @@ from bfp_unicornphat import double_ripple
 
 def double_ripple_2():
     """
-    Gets 9 rainbow, assigns them in reverse order, and sends them to
+    Gets 9 rainbows, assigns them in reverse order, and sends them to
     the double ripple function
     """
 
@@ -44,8 +44,10 @@ def double_ripple_2():
     rainbow08, rainbow07, rainbow06, rainbow05, rainbow04, rainbow03, \
         rainbow02, rainbow01 = get_double_ripple_rainbows_1()
 
-    double_ripple(rainbow00, rainbow01, rainbow02, rainbow03, rainbow04,
-                  rainbow05, rainbow06, rainbow07, rainbow08)
+    dr_rainbows_2 = [rainbow01, rainbow02, rainbow03, rainbow04,
+                     rainbow05, rainbow06, rainbow07, rainbow08]
+
+    double_ripple(rainbow00, dr_rainbows_2)
 
 
 if __name__ == '__main__':
