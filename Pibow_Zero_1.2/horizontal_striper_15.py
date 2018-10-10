@@ -27,7 +27,7 @@ This program was written on a Raspberry Pi using the Geany IDE.
 
 from bfp_unicornphat import print_header
 from bfp_unicornphat import stop
-from bfp_unicornphat import stripe_horizontally_reverse_alt_2
+from bfp_unicornphat import stripe_horizontally_rev_alt_2
 
 ########################################################################
 #                         Import variables                             #
@@ -49,7 +49,7 @@ def horizontal_striper_15():
     x_coordinate_list = X_COORDINATES
     y_coordinate_list = Y_COORDINATES[::-1]
 
-    stripe_horizontally_reverse_alt_2(x_coordinate_list, y_coordinate_list)
+    stripe_horizontally_rev_alt_2(x_coordinate_list, y_coordinate_list)
 
 
 if __name__ == '__main__':
