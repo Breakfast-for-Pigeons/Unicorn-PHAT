@@ -44,8 +44,10 @@ def double_ripple_4():
     rainbow08, rainbow07, rainbow06, rainbow05, rainbow04, rainbow03, \
         rainbow02, rainbow01 = get_double_ripple_rainbows_2()
 
-    double_ripple(rainbow00, rainbow01, rainbow02, rainbow03, rainbow04,
-                  rainbow05, rainbow06, rainbow07, rainbow08)
+    dr_rainbows_4 = [rainbow01, rainbow02, rainbow03, rainbow04,
+                     rainbow05, rainbow06, rainbow07, rainbow08]
+
+    double_ripple(rainbow00, dr_rainbows_4)
 
 
 if __name__ == '__main__':
