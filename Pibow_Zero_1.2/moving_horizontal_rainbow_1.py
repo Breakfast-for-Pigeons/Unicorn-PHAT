@@ -42,7 +42,9 @@ def moving_horizontal_rainbow_1():
 
     rainbow01, rainbow02, rainbow03 = get_horizontal_rainbows()
 
-    move_horizontally(rainbow00, rainbow01, rainbow02, rainbow03)
+    mh_rainbows_1 = [rainbow00, rainbow01, rainbow02, rainbow03]
+
+    move_horizontally(mh_rainbows_1)
 
 
 if __name__ == '__main__':
