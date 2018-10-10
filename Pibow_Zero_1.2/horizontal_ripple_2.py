@@ -35,7 +35,8 @@ from bfp_unicornphat import ripple_horizontally
 
 def horizontal_ripple_2():
     """
-    Gets 9 rainbows and sends them to the ripple diagonally function
+    Gets 9 rainbows and sends them as an argument to the ripple
+    diagonally function
     """
 
     rainbow00 = get_horizontal_rainbow_00()
@@ -43,10 +44,10 @@ def horizontal_ripple_2():
     rainbow08, rainbow07, rainbow06, rainbow05, rainbow04, rainbow03, \
         rainbow02, rainbow01 = get_horizontal_ripple_rainbows()
 
-    ripple_horizontally(rainbow00, rainbow01, rainbow02, rainbow03,
-                        rainbow04, rainbow05, rainbow06, rainbow07,
-                        rainbow08)
+    hr_rainbows_2 = [rainbow01, rainbow02, rainbow03, rainbow04,
+                     rainbow05, rainbow06, rainbow07, rainbow08]
 
+    ripple_horizontally(rainbow00, hr_rainbows_2)
 
 if __name__ == '__main__':
     try:
