@@ -36,14 +36,16 @@ from bfp_unicornphat import move_horizontally
 def moving_horizontal_rainbow_2():
     """
     Retrieves the rainbows, assigns them in reverse order, and then
-    sends them to the move function.
+    sends them as an argument to the move function.
     """
 
     rainbow00 = get_horizontal_rainbow_00()
 
     rainbow03, rainbow02, rainbow01 = get_horizontal_rainbows()
 
-    move_horizontally(rainbow00, rainbow01, rainbow02, rainbow03)
+    mh_rainbows_2 = [rainbow00, rainbow01, rainbow02, rainbow03]
+
+    move_horizontally(mh_rainbows_2)
 
 
 if __name__ == '__main__':
