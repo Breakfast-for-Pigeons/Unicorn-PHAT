@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Moving Vertical Rainbow 2 - Pibow Zero 1.2
+Moving Vertical Rainbow 2 - Pibow Zero 1.3
 
 Retrieves the rainbows and sends them to the move function.
 With the GPIO pins at the top of the Raspberry Pi, the rainbows move
