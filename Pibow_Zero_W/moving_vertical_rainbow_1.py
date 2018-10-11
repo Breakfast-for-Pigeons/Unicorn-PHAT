@@ -35,7 +35,7 @@ from bfp_unicornphat import move_vertically
 
 def moving_vertical_rainbow_1():
     """
-    Retrieves the rainbows and sends them to the move
+    Retrieves the rainbows and sends them as an argument to the move
     function.
     """
 
@@ -43,7 +43,9 @@ def moving_vertical_rainbow_1():
 
     rainbow01, rainbow02, rainbow03 = get_vertical_rainbows()
 
-    move_vertically(rainbow00, rainbow01, rainbow02, rainbow03)
+    mv_rainbows_1 = (rainbow00, rainbow01, rainbow02, rainbow03)
+
+    move_vertically(mv_rainbows_1)
 
 
 if __name__ == '__main__':
