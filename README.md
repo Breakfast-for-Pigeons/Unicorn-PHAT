@@ -1,4 +1,14 @@
-These are my programs for the Pimoroni Unicorn pHAT.
+# Unicorn-PHAT
+
+This is a collection of over 50 programs that I wrote for the Pimoroni Unicorn pHAT.
+
+If you are looking for the initial setup instructions for the Unicorn pHat, check out this link:
+https://github.com/pimoroni/unicorn-hat
+
+If you are looking to get started writing your own programs for the Pimoroni Unicorn pHAT, check out this link:
+http://docs.pimoroni.com/unicornhat/
+
+
 
 # American flag
 Contains programs featuring the American flag
@@ -7,13 +17,13 @@ Contains programs featuring the American flag
 Contains programs using only the pastel colors of the Pibow Candy case. Choose which individual ones you like,  or get a taste of all of them with the pibow_candy_demo.py program.
 
 # Pibow Zero 1.2
-These programs will run on any version of the Raspberry Pi. They just feature only the colors of the case designed for the Raspberry Pi Zero 1.2 (the one without the camera port).
+These programs will run on any version of the Raspberry Pi. They just feature only the colors of the case that was designed for the Raspberry Pi Zero 1.2 (the one without the camera port).
 
 # Pibow Zero 1.3
-These programs will run on any version of the Raspberry Pi. They just feature only the colors of the case designed for the Raspberry Pi Zero 1.3 (the one with the camera port).
+These programs will run on any version of the Raspberry Pi. They just feature only the colors of the case that was designed for the Raspberry Pi Zero 1.3 (the one with the camera port).
 
 # Pibow Zero W
-These programs will run on any version of the Raspberry Pi. They just feature only the colors of the case designed for the Raspberry Pi Zero W.
+These programs will run on any version of the Raspberry Pi. They just feature only the colors of the case that was designed for the Raspberry Pi Zero W.
 
 # Pictures:
 ![rasperry_pi_0_v1 2_case](https://user-images.githubusercontent.com/13591438/37558940-34804df0-29ea-11e8-955a-6906818bde12.JPG)
