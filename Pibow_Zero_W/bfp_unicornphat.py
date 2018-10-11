@@ -1060,23 +1060,20 @@ def get_y_color(y_color_tuple):
     """
     Extracts 3 individual integers from a tuple and returns them.
 
+    Parameter:
+        y_color_tuple: a tuple of red, green and blue values for y
+            coordinates
+
     Programs that use this function:
-        - Horizontal Striper 1
-        - Horizontal Striper 2
-        - Horizontal Striper 3
-        - Horizontal Striper 4
-        - Horizontal Striper 5
-        - Horizontal Striper 6
-        - Horizontal Striper 7
-        - Horizontal Striper 8
-        - Horizontal Striper 9
-        - Horizontal Striper 10
-        - Horizontal Striper 11
-        - Horizontal Striper 12
-        - Horizontal Striper 13
-        - Horizontal Striper 14
-        - Horizontal Striper 15
-        - Horizontal Striper 16
+        - Horizontal Striper 1 through 16, but get_y_color is called
+          directly by the following functions
+            - stripe_horizontally
+            - stripe_horizontally_alternate
+            - stripe_horizontally_alternate_2
+            - stripe_horizontally_reverse
+            - stripe_horizontally_reverse_alt
+            - stripe_horizontally_rev_alt_2
+
     """
 
     return int(y_color_tuple[0]), int(y_color_tuple[1]), \
@@ -1087,49 +1084,39 @@ def get_x_color(x_color_tuple):
     """
     Extracts 3 individual integers from a tuple and returns them.
 
+    Parameter:
+        x_color_tuple: a tuple of red, green and blue values for x
+            coordinates
+
     Programs that use this function:
-        - Vertical Striper 1
-        - Vertical  Striper 2
-        - Vertical  Striper 3
-        - Vertical  Striper 4
-        - Vertical  Striper 5
-        - Vertical  Striper 6
-        - Vertical  Striper 7
-        - Vertical  Striper 8
-        - Vertical  Striper 9
-        - Vertical  Striper 10
-        - Vertical  Striper 11
-        - Vertical  Striper 12
-        - Vertical  Striper 13
-        - Vertical  Striper 14
-        - Vertical  Striper 15
-        - Vertical  Striper 16
+        - Vertical Striper 1 through 16, but get_x_color is called
+          directly by the following functions.
+            - stripe_vertically
+            - stripe_vertically_alternate
+            - stripe_vertically_alternate_2
+            - stripe_vertically_reverse
+            - stripe_vertically_reverse_alt
+            - stripe_vertically_reverse_alt_2
     """
 
     return int(x_color_tuple[0]), int(x_color_tuple[1]), \
         int(x_color_tuple[2])
 
 
-def ripple_diagonally(rainbow00, rainbow01, rainbow02, rainbow03,
-                      rainbow04, rainbow05, rainbow06, rainbow07,
-                      rainbow08, rainbow09, rainbow10, rainbow11):
+def ripple_diagonally(static_rainbow, rainbow_list):
     """
     Cycles through 12 rainbows to make them ripple diagonally
 
-    Arguments:
-        Rainbows 00 through 11
+    Parameters:
+        static_rainbow: a single horizontal rainbow
+        rainbow_list: a list containing 11 rainbows that will ripple
 
     Programs that use this function:
-        - Diagonal Ripple 1
-        - Diagonal Ripple 2
-        - Diagonal Ripple 3
-        - Diagonal Ripple 4
+       - Diagonal Ripple 1: passes in rainbow00 and diagonal_rainbows_1
+       - Diagonal Ripple 2: passes in rainbow00 and diagonal_rainbows_2
+       - Diagonal Ripple 3: passes in rainbow00 and diagonal_rainbows_3
+       - Diagonal Ripple 4: passes in rainbow00 and diagonal_rainbows_4
     """
-
-    rainbow00 = rainbow00
-    rainbows = [rainbow01, rainbow02, rainbow03, rainbow04,
-                rainbow05, rainbow06, rainbow07, rainbow08,
-                rainbow09, rainbow10, rainbow11]
 
     start_time = time.time()
     time.clock()
@@ -1138,35 +1125,31 @@ def ripple_diagonally(rainbow00, rainbow01, rainbow02, rainbow03,
     while seconds_elapsed < 10:
         # Show main horizontal rainbow
         seconds_elapsed = time.time() - start_time
-        unicornhat.set_pixels(rainbow00)
+        unicornhat.set_pixels(static_rainbow)
         unicornhat.show()
         time.sleep(2.0)
         # Loop through the rainbows so they appear to ripple
-        for rainbow in rainbows:
+        for rainbow in rainbow_list:
             seconds_elapsed = time.time() - start_time
             unicornhat.set_pixels(rainbow)
             unicornhat.show()
             time.sleep(0.05)
 
 
-def double_ripple(rainbow00, rainbow01, rainbow02, rainbow03, rainbow04,
-                  rainbow05, rainbow06, rainbow07, rainbow08):
+def double_ripple(static_rainbow, rainbow_list):
     """
     Cycles through 9 rainbows to ripple them
 
-    Arguments:
-        Rainbows 00 through 08
+    Parameters:
+        static_rainbow: a single horizontal rainbow
+        rainbow_list: a list containing 9 rainbows that will ripple
 
     Programs that use this function:
-        - Double Ripple 1
-        - Double Ripple 2
-        - Double Ripple 3
-        - Double Ripple 4
+        - Double Ripple 1: passes in rainbow00 and dr_rainbows_1
+        - Double Ripple 2: passes in rainbow00 and dr_rainbows_2
+        - Double Ripple 3: passes in rainbow00 and dr_rainbows_3
+        - Double Ripple 4: passes in rainbow00 and dr_rainbows_4
     """
-
-    rainbow00 = rainbow00
-    rainbows = [rainbow01, rainbow02, rainbow03, rainbow04,
-                rainbow05, rainbow06, rainbow07, rainbow08]
 
     start_time = time.time()
     time.clock()
@@ -1175,31 +1158,29 @@ def double_ripple(rainbow00, rainbow01, rainbow02, rainbow03, rainbow04,
     while seconds_elapsed < 10:
         # Show main horizontal rainbow
         seconds_elapsed = time.time() - start_time
-        unicornhat.set_pixels(rainbow00)
+        unicornhat.set_pixels(static_rainbow)
         unicornhat.show()
         time.sleep(2.0)
         # Loop through the rainbows so they appear to ripple
-        for rainbow in rainbows:
+        for rainbow in rainbow_list:
             seconds_elapsed = time.time() - start_time
             unicornhat.set_pixels(rainbow)
             unicornhat.show()
             time.sleep(0.05)
 
 
-def ripple_horizontally(rainbow00, rainbow01, rainbow02, rainbow03,
-                        rainbow04, rainbow05, rainbow06, rainbow07,
-                        rainbow08):
+def ripple_horizontally(static_rainbow, rainbow_list):
     """
     Cycles through 9 rainbows to ripple them horizontally
 
-    Programs that use this function:
-        - Horizontal Ripple 1
-        - Horizontal Ripple 1
-    """
+    Parameters:
+        static_rainbow: a single horizontal rainbow
+        rainbow_list: a list containing 8 rainbows that will ripple
 
-    rainbow00 = rainbow00
-    rainbows = [rainbow01, rainbow02, rainbow03, rainbow04,
-                rainbow05, rainbow06, rainbow07, rainbow08]
+    Programs that use this function:
+        - Horizontal Ripple 1: passes in rainbow00 and hr_rainbows_1
+        - Horizontal Ripple 2: passes in rainbow00 and hr_rainbows_1
+    """
 
     start_time = time.time()
     time.clock()
@@ -1208,11 +1189,11 @@ def ripple_horizontally(rainbow00, rainbow01, rainbow02, rainbow03,
     while seconds_elapsed < 10:
         # Show main horizontal rainbow
         seconds_elapsed = time.time() - start_time
-        unicornhat.set_pixels(rainbow00)
+        unicornhat.set_pixels(static_rainbow)
         unicornhat.show()
         time.sleep(2.0)
         # Loop through the rainbows so they appear to ripple
-        for rainbow in rainbows:
+        for rainbow in rainbow_list:
             seconds_elapsed = time.time() - start_time
             unicornhat.set_pixels(rainbow)
             unicornhat.show()
@@ -1224,7 +1205,7 @@ def stripe_horizontally(x_coordinate_list, y_coordinate_list):
     Lights up the LEDs based on the x and y coordinates that were sent
     to it.
 
-    Arguments:
+    Parameters:
         x_coordidate_list: a list of the numbers 0 - 7
         y_coordidate_list: a list of the numbers 0 - 3
 
@@ -1267,7 +1248,7 @@ def stripe_horizontally_alternate(x_coordinate_list, y_coordinate_list):
     Lights up the LEDs based on the x and y coordinates that were sent
     to it. It alternates from right to left and left to right.
 
-    Arguments:
+    Parameters:
         x_coordidate_list: a list of the numbers 0 - 7
         y_coordidate_list: a list of the numbers 0 - 7
 
@@ -1317,7 +1298,7 @@ def stripe_horizontally_alternate_2(x_coordinate_list, y_coordinate_list):
     Lights up the LEDs based on the x and y coordinates that were sent
     to it. It alternates from left to right to right to left.
 
-    Arguments:
+    Parameters:
         x_coordidate_list: a list of the numbers 0 - 7
         y_coordidate_list: a list of the numbers 0 - 7
 
@@ -1367,7 +1348,7 @@ def stripe_horizontally_reverse(x_coordinate_list, y_coordinate_list):
     Lights up the LEDs based on the x and y coordinates that were sent
     to it.
 
-    Arguments:
+    Parameters:
         x_coordidate_list: a list of the numbers 0 - 7
         y_coordidate_list: a list of the numbers 0 - 3
 
@@ -1410,7 +1391,7 @@ def stripe_horizontally_reverse_alt(x_coordinate_list, y_coordinate_list):
     Lights up the LEDs based on the x and y coordinates that were sent
     to it. This function is used with Horizontal Striper 5 and 6.
 
-    Arguments:
+    Parameters:
         x_coordidate_list: a list of the numbers 0 - 7
         y_coordidate_list: a list of the numbers 0 - 7
 
@@ -1455,12 +1436,12 @@ def stripe_horizontally_reverse_alt(x_coordinate_list, y_coordinate_list):
         time.sleep(1.0)
 
 
-def stripe_horizontally_reverse_alt_2(x_coordinate_list, y_coordinate_list):
+def stripe_horizontally_rev_alt_2(x_coordinate_list, y_coordinate_list):
     """
     Lights up the LEDs based on the x and y coordinates that were sent
     to it. This function is used with Horizontal Striper 7 and 8.
 
-    Arguments:
+    Parameters:
         x_coordidate_list: a list of the numbers 0 - 7
         y_coordidate_list: a list of the numbers 0 - 7
 
@@ -1505,21 +1486,19 @@ def stripe_horizontally_reverse_alt_2(x_coordinate_list, y_coordinate_list):
         time.sleep(1.0)
 
 
-def move_diagonally(rainbow00, rainbow01, rainbow02, rainbow03):
+def move_diagonally(rainbow_list):
     """
     Cycles through 4 rainbows to make them appear to move diagonally
 
-    Arguments:
-        4 different rainbow imagaes for the UnicornPHAT
+    Parameters:
+        rainbow_list: 4 different rainbow images
 
     Programs that use this function:
-        - Moving Diagonal Rainbow 1
-        - Moving Diagonal Rainbow 2
-        - Moving Diagonal Rainbow 3
-        - Moving Diagonal Rainbow 4
+        - Moving Diagonal Rainbow 1: passes in md_rainbows_1
+        - Moving Diagonal Rainbow 2: passes in md_rainbows_2
+        - Moving Diagonal Rainbow 3: passes in md_rainbows_3
+        - Moving Diagonal Rainbow 4: passes in md_rainbows_4
     """
-
-    rainbows = [rainbow00, rainbow01, rainbow02, rainbow03]
 
     start_time = time.time()
     time.clock()
@@ -1527,28 +1506,25 @@ def move_diagonally(rainbow00, rainbow01, rainbow02, rainbow03):
 
     while seconds_elapsed < 10:
         # Loop through the rainbows so they appear to move
-        for rainbow in rainbows:
+        for rainbow in rainbow_list:
             seconds_elapsed = time.time() - start_time
             unicornhat.set_pixels(rainbow)
             unicornhat.show()
             time.sleep(0.5)
 
 
-def move_horizontally(rainbow00, rainbow01, rainbow02, rainbow03):
+def move_horizontally(rainbow_list):
     """
     Cycles through 4 rainbows to make them appear to move horizontally
 
-    This function runs for 10 seconds
-
-    Arguments:
-        4 different rainbow imagaes for the UnicornPHAT
+    Parameters:
+        rainbow_list: a list containing 4 horizontal rainbows that will
+        ripple
 
     Programs that use this function:
-        - Moving Horizontal Rainbow 1
-        - Moving Horizontal Rainbow 2
+        - Moving Horizontal Rainbow 1: passes in mh_rainbows_1
+        - Moving Horizontal Rainbow 2: passes in mh_rainbows_2
     """
-
-    rainbows = [rainbow00, rainbow01, rainbow02, rainbow03]
 
     start_time = time.time()
     time.clock()
@@ -1556,23 +1532,21 @@ def move_horizontally(rainbow00, rainbow01, rainbow02, rainbow03):
 
     while seconds_elapsed < 10:
         # Loop through the rainbows so they appear to move
-        for rainbow in rainbows:
+        for rainbow in rainbow_list:
             seconds_elapsed = time.time() - start_time
             unicornhat.set_pixels(rainbow)
             unicornhat.show()
             time.sleep(0.5)
 
 
-def move_vertically(rainbow00, rainbow01, rainbow02, rainbow03):
+def move_vertically(rainbow_list):
     """
     Cycles through 4 rainbows to make them appear to move vertically
 
     Programs that use this function:
-        - Moving Vertical Rainbow 1
-        - Moving Vertical Rainbow 2
+        - Moving Vertical Rainbow 1: passes in mv_rainbows_1
+        - Moving Vertical Rainbow 2: passes in mv_rainbows_2
     """
-
-    rainbows = [rainbow00, rainbow01, rainbow02, rainbow03]
 
     start_time = time.time()
     time.clock()
@@ -1580,7 +1554,7 @@ def move_vertically(rainbow00, rainbow01, rainbow02, rainbow03):
 
     while seconds_elapsed < 10:
         # Loop through the rainbows so they appear to move
-        for rainbow in rainbows:
+        for rainbow in rainbow_list:
             seconds_elapsed = time.time() - start_time
             unicornhat.set_pixels(rainbow)
             unicornhat.show()
@@ -1607,7 +1581,7 @@ def light_up_random_led(red, green, blue):
     """
     Lights up a random LED
 
-    Arguments:
+    Parameters:
         red, green, and blue: integers that represent the amount of
             red, green, and blue in an LED
 
@@ -1641,18 +1615,18 @@ def random_y_coordinate():
     return int(random.choice(Y_COORDINATES))
 
 
-def ripple_vertically(rainbow00, rainbow01, rainbow02, rainbow03,
-                      rainbow04):
+def ripple_vertically(static_rainbow, rainbow_list):
     """
     Cycles through 5 rainbows to ripple them vertically
 
-    Programs that use this function:
-        - Vertical Ripple 1
-        - Vertical Ripple 2
-    """
+    Parameters:
+        static_rainbow: a single vertical rainbow
+        rainbow_list: a list containing 8 rainbows that will ripple
 
-    rainbow00 = rainbow00
-    rainbows = [rainbow01, rainbow02, rainbow03, rainbow04]
+    Programs that use this function:
+        - Vertical Ripple 1: passes in rainbow00 and vr_rainbows_1
+        - Vertical Ripple 2: passes in rainbow00 and vr_rainbows_2
+    """
 
     start_time = time.time()
     time.clock()
@@ -1660,11 +1634,11 @@ def ripple_vertically(rainbow00, rainbow01, rainbow02, rainbow03,
 
     while seconds_elapsed < 10:
         # Show main vertical rainbow
-        unicornhat.set_pixels(rainbow00)
+        unicornhat.set_pixels(static_rainbow)
         unicornhat.show()
         time.sleep(2.0)
         # Loop through the rainbows so they appear to ripple
-        for rainbow in rainbows:
+        for rainbow in rainbow_list:
             seconds_elapsed = time.time() - start_time
             unicornhat.set_pixels(rainbow)
             unicornhat.show()
@@ -1676,7 +1650,7 @@ def stripe_vertically(x_coordinate_list, y_coordinate_list):
     Lights up the LEDs based on the x and y coordinates that were sent
     to it.
 
-    Arguments:
+    Parameters:
         x_coordidate_list: a list of the numbers 0 - 7
         y_coordidate_list: a list of the numbers 0 - 3
 
@@ -1727,7 +1701,7 @@ def stripe_vertically_alternate(x_coordinate_list, y_coordinate_list):
     Lights up the LEDs based on the x and y coordinates that were sent
     to it.
 
-    Arguments:
+    Parameters:
         x_coordidate_list: a list of the numbers 0 - 7
         y_coordidate_list: a list of the numbers 0 - 7
 
@@ -1783,7 +1757,7 @@ def stripe_vertically_alternate_2(x_coordinate_list, y_coordinate_list):
     Lights up the LEDs based on the x and y coordinates that were sent
     to it.
 
-    Arguments:
+    Parameters:
         x_coordidate_list: a list of the numbers 0 - 7
         y_coordidate_list: a list of the numbers 0 - 7
 
@@ -1839,7 +1813,7 @@ def stripe_vertically_reverse(x_coordinate_list, y_coordinate_list):
     Lights up the LEDs based on the x and y coordinates that were sent
     to it.
 
-    Arguments:
+    Parameters:
         x_coordidate_list: a list of the numbers 0 - 7
         y_coordidate_list: a list of the numbers 0 - 3
 
@@ -1890,7 +1864,7 @@ def stripe_vertically_reverse_alt(x_coordinate_list, y_coordinate_list):
     Lights up the LEDs based on the x and y coordinates that were sent
     to it.
 
-    Arguments:
+    Parameters:
         x_coordidate_list: a list of the numbers 0 - 7
         y_coordidate_list: a list of the numbers 0 - 7
 
@@ -1946,7 +1920,7 @@ def stripe_vertically_reverse_alt_2(x_coordinate_list, y_coordinate_list):
     Lights up the LEDs based on the x and y coordinates that were sent
     to it. This function is used with Vertical Striper 7 and 8
 
-    Arguments:
+    Parameters:
         x_coordidate_list: a list of the numbers 0 - 7
         y_coordidate_list: a list of the numbers 0 - 7
 
