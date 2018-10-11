@@ -1,15 +1,15 @@
 #!/usr/bin/python3
 """
-Moving Horizontal Rainbow 2 - Pibow Zero W
+Moving Horizontal Rainbow 1 - Pibow Zero W
 
 Retrieves the rainbows and sends them to the move function.
 With the GPIO pins at the top of the Raspberry Pi, the rainbows move
-from right to left.
+from left to right.
 
 ....................
 
 Functions:
-- moving_horizontal_rainbow_2: Retrieves the rainbows and sends them to
+- moving_horizontal_rainbow_1: Retrieves the rainbows and sends them to
       the move function.
 
 ....................
@@ -33,17 +33,18 @@ from bfp_unicornphat import move_horizontally
 ########################################################################
 
 
-def moving_horizontal_rainbow_2():
+def moving_horizontal_rainbow_1():
     """
-    Retrieves the rainbows, assigns them in reverse order, and then
-    sends them to the move function.
+    Retrieves the rainbows and sends them to the move function.
     """
 
     rainbow00 = get_horizontal_rainbow_00()
 
-    rainbow03, rainbow02, rainbow01 = get_horizontal_rainbows()
+    rainbow01, rainbow02, rainbow03 = get_horizontal_rainbows()
 
-    move_horizontally(rainbow00, rainbow01, rainbow02, rainbow03)
+    mh_rainbows_1 = [rainbow00, rainbow01, rainbow02, rainbow03]
+
+    move_horizontally(mh_rainbows_1)
 
 
 if __name__ == '__main__':
@@ -53,7 +54,7 @@ if __name__ == '__main__':
         # STEP02: Print instructions in white text
         print("\033[1;37;40mPress Ctrl-C to stop the program.")
         # STEP03:
-        moving_horizontal_rainbow_2()
+        moving_horizontal_rainbow_1()
         # STEP04: Exit the program.
         stop()
     except KeyboardInterrupt:
