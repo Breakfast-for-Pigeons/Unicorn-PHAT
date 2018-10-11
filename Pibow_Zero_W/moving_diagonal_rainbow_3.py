@@ -35,13 +35,16 @@ from bfp_unicornphat import move_diagonally
 
 def moving_diagonal_rainbow_3():
     """
-    Gets 4 rainbows and sends them to the move_diagonally function
+    Gets 4 rainbows and sends them as an argument to the
+    move_diagonally function
     """
 
     rainbow00, rainbow01, rainbow02, \
         rainbow03 = get_diagonal_rainbows_2()
 
-    move_diagonally(rainbow00, rainbow01, rainbow02, rainbow03)
+    md_rainbows_3 = [rainbow00, rainbow01, rainbow02, rainbow03]
+
+    move_diagonally(md_rainbows_3)
 
 
 if __name__ == '__main__':
