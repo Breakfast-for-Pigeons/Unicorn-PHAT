@@ -41,7 +41,9 @@ def moving_diagonal_rainbow_2():
     rainbow03, rainbow02, rainbow01, \
         rainbow00 = get_diagonal_rainbows_1()
 
-    move_diagonally(rainbow00, rainbow01, rainbow02, rainbow03)
+    md_rainbows_2 = [rainbow00, rainbow01, rainbow02, rainbow03]
+
+    move_diagonally(md_rainbows_2)
 
 
 if __name__ == '__main__':
