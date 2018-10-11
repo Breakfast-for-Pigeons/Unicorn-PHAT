@@ -1103,12 +1103,12 @@ def get_x_color(x_color_tuple):
         int(x_color_tuple[2])
 
 
-def ripple_diagonally(rainbow00, rainbow_list):
+def ripple_diagonally(static_rainbow, rainbow_list):
     """
     Cycles through 12 rainbows to make them ripple diagonally
 
     Parameters:
-        rainbow00: a static horizontal rainbow
+        static_rainbow: a single horizontal rainbow
         rainbow_list: a list containing 11 rainbows that will ripple
 
     Programs that use this function:
@@ -1125,7 +1125,7 @@ def ripple_diagonally(rainbow00, rainbow_list):
     while seconds_elapsed < 10:
         # Show main horizontal rainbow
         seconds_elapsed = time.time() - start_time
-        unicornhat.set_pixels(rainbow00)
+        unicornhat.set_pixels(static_rainbow)
         unicornhat.show()
         time.sleep(2.0)
         # Loop through the rainbows so they appear to ripple
@@ -1136,12 +1136,12 @@ def ripple_diagonally(rainbow00, rainbow_list):
             time.sleep(0.05)
 
 
-def double_ripple(rainbow00, rainbow_list):
+def double_ripple(static_rainbow, rainbow_list):
     """
     Cycles through 9 rainbows to ripple them
 
     Parameters:
-        rainbow00: a static horizontal rainbow
+        static_rainbow: a single horizontal rainbow
         rainbow_list: a list containing 9 rainbows that will ripple
 
     Programs that use this function:
@@ -1158,7 +1158,7 @@ def double_ripple(rainbow00, rainbow_list):
     while seconds_elapsed < 10:
         # Show main horizontal rainbow
         seconds_elapsed = time.time() - start_time
-        unicornhat.set_pixels(rainbow00)
+        unicornhat.set_pixels(static_rainbow)
         unicornhat.show()
         time.sleep(2.0)
         # Loop through the rainbows so they appear to ripple
@@ -1169,12 +1169,12 @@ def double_ripple(rainbow00, rainbow_list):
             time.sleep(0.05)
 
 
-def ripple_horizontally(rainbow00, rainbow_list):
+def ripple_horizontally(static_rainbow, rainbow_list):
     """
     Cycles through 9 rainbows to ripple them horizontally
 
     Parameters:
-        rainbow00: a static horizontal rainbow
+        static_rainbow: a single horizontal rainbow
         rainbow_list: a list containing 8 rainbows that will ripple
 
     Programs that use this function:
@@ -1189,7 +1189,7 @@ def ripple_horizontally(rainbow00, rainbow_list):
     while seconds_elapsed < 10:
         # Show main horizontal rainbow
         seconds_elapsed = time.time() - start_time
-        unicornhat.set_pixels(rainbow00)
+        unicornhat.set_pixels(static_rainbow)
         unicornhat.show()
         time.sleep(2.0)
         # Loop through the rainbows so they appear to ripple
@@ -1615,12 +1615,12 @@ def random_y_coordinate():
     return int(random.choice(Y_COORDINATES))
 
 
-def ripple_vertically(rainbow00, rainbow_list):
+def ripple_vertically(static_rainbow, rainbow_list):
     """
     Cycles through 5 rainbows to ripple them vertically
 
     Parameters:
-        rainbow00: a static horizontal rainbow
+        static_rainbow: a single vertical rainbow
         rainbow_list: a list containing 8 rainbows that will ripple
 
     Programs that use this function:
@@ -1634,7 +1634,7 @@ def ripple_vertically(rainbow00, rainbow_list):
 
     while seconds_elapsed < 10:
         # Show main vertical rainbow
-        unicornhat.set_pixels(rainbow00)
+        unicornhat.set_pixels(static_rainbow)
         unicornhat.show()
         time.sleep(2.0)
         # Loop through the rainbows so they appear to ripple
