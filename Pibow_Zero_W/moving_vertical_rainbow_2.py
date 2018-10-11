@@ -36,14 +36,16 @@ from bfp_unicornphat import move_vertically
 def moving_vertical_rainbow_2():
     """
     Retrieves the rainbows, assigns them in reverse order, and then
-    sends them to the move function.
+    sends them as an argument to the move function.
     """
 
     rainbow00 = get_vertical_rainbow_00()
 
     rainbow03, rainbow02, rainbow01 = get_vertical_rainbows()
 
-    move_vertically(rainbow00, rainbow01, rainbow02, rainbow03)
+    mv_rainbows_2 = (rainbow00, rainbow01, rainbow02, rainbow03)
+
+    move_vertically(mv_rainbows_2)
 
 
 if __name__ == '__main__':
