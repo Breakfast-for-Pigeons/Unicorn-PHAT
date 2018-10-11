@@ -5,7 +5,7 @@ Horizontal Striper 11 - Pibow Zero W
 With the Raspberry Pi oriented with the GPIO pins at the top, this
 program stripes from the bottom to the top and from left to right.
 
-This is exactly the same at Horizontal Striper 3 except the color order
+This is exactly the same as Horizontal Striper 3 except the color order
 is reversed.
 
 ....................
