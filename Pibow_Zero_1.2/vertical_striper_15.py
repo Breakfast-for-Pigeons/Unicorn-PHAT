@@ -6,7 +6,7 @@ With the Raspberry Pi oriented with the GPIO pins at the top, this
 program stripes from right to left and alternates between from top to
 bottom and from bottom to top.
 
-This is exactly the same at Horizontal Striper 7 except the color order
+This is exactly the same as Vertical Striper 7 except the color order
 is reversed.
 
 ....................
