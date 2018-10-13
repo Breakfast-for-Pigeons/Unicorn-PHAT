@@ -27,7 +27,6 @@ This program was written on a Raspberry Pi using the Geany IDE.
 
 from time import sleep
 import unicornhat
-from print_unicornphat_header import print_unicornphat_header
 
 ########################################################################
 #                           Initialize                                 #
@@ -48,24 +47,6 @@ B2 = (0, 0, 128)
 ########################################################################
 #                            Functions                                 #
 ########################################################################
-
-
-def main():
-    """
-    This is the main function
-    """
-
-    print_unicornphat_header()
-
-    # Force white text after selecting random colored header
-    print("\033[1;37;40mPress Ctrl-C to stop the program.")
-
-    try:
-        while True:
-            display_flag()
-            waving_flag()
-    except KeyboardInterrupt:
-        stop()
 
 
 def display_flag():
@@ -228,39 +209,15 @@ def waving_flag():
         [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF]
         ]
 
-    unicornhat.set_pixels(wave00)
-    unicornhat.show()
-    sleep(0.05)
-    unicornhat.set_pixels(wave01)
-    unicornhat.show()
-    sleep(0.05)
-    unicornhat.set_pixels(wave02)
-    unicornhat.show()
-    sleep(0.05)
-    unicornhat.set_pixels(wave03)
-    unicornhat.show()
-    sleep(0.05)
-    unicornhat.set_pixels(wave04)
-    unicornhat.show()
-    sleep(0.05)
-    unicornhat.set_pixels(wave05)
-    unicornhat.show()
-    sleep(0.05)
-    unicornhat.set_pixels(wave06)
-    unicornhat.show()
-    sleep(0.05)
-    unicornhat.set_pixels(wave07)
-    unicornhat.show()
-    sleep(0.05)
-    unicornhat.set_pixels(wave08)
-    unicornhat.show()
-    sleep(0.05)
-    unicornhat.set_pixels(wave09)
-    unicornhat.show()
-    sleep(0.05)
-    unicornhat.set_pixels(wave10)
-    unicornhat.show()
-    sleep(0.05)
+
+    waves = [wave00, wave01, wave02, wave03, wave04, wave05,
+             wave06, wave07, wave08, wave09, wave10]
+
+    # Loop through the rainbows so they appear to move
+    for wave in waves:
+        unicornhat.set_pixels(wave)
+        unicornhat.show()
+        sleep(0.05)
 
 
 def stop():
@@ -272,4 +229,11 @@ def stop():
 
 
 if __name__ == '__main__':
-    main()
+    print("\033[1;37;40mPress Ctrl-C to stop the program.")
+
+    try:
+        while True:
+            display_flag()
+            waving_flag()
+    except KeyboardInterrupt:
+        stop()
