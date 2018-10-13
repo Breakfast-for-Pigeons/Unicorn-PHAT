@@ -11,7 +11,7 @@ Functions:
 - display_flag: Lights up the LEDs to create a picture of the
       American flag.
 - waving_flag: Makes the flag appear to be waving in the wind.
-- stop: Print exit message and turn OFF the UnicornHAT
+- stop: Print exit message and turn off the UnicornHAT
 
 ....................
 
@@ -25,7 +25,6 @@ This program was written on a Raspberry Pi using the Geany IDE.
 
 from time import sleep
 import unicornhat
-from print_unicornphat_header import print_unicornphat_header
 
 ########################################################################
 #                           Initialize                                 #
@@ -48,24 +47,6 @@ B2 = (0, 0, 128)
 ########################################################################
 
 
-def main():
-    """
-    This is the main function
-    """
-
-    print_unicornphat_header()
-
-    # Force white text after selecting random colored header
-    print("\033[1;37;40mPress Ctrl-C to stop the program.")
-
-    try:
-        while True:
-            display_flag()
-            waving_flag()
-    except KeyboardInterrupt:
-        stop()
-
-
 def display_flag():
     """
     The function lights up the LEDs to create a picture of the
@@ -82,7 +63,7 @@ def display_flag():
         [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
         [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
         [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF]
-        ]
+    ]
 
     unicornhat.set_pixels(flag)
     unicornhat.show()
@@ -94,7 +75,7 @@ def waving_flag():
     The function makes the flag appear to be waving in the wind.
     """
 
-    wave0 = [
+    wave00 = [
         [B2, B, B, B, R, R, R, R],
         [B2, B, B, B, W, W, W, W],
         [R2, R, R, R, R, R, R, R],
@@ -104,9 +85,9 @@ def waving_flag():
         [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
         [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
         [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF]
-        ]
+    ]
 
-    wave1 = [
+    wave01 = [
         [B, B2, B, B, R, R, R, R],
         [B, B2, B, B, W, W, W, W],
         [R, R2, R, R, R, R, R, R],
@@ -116,9 +97,9 @@ def waving_flag():
         [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
         [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
         [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF]
-        ]
+    ]
 
-    wave2 = [
+    wave02 = [
         [B, B, B2, B, R, R, R, R],
         [B, B, B2, B, W, W, W, W],
         [R, R, R2, R, R, R, R, R],
@@ -128,9 +109,9 @@ def waving_flag():
         [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
         [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
         [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF]
-        ]
+    ]
 
-    wave3 = [
+    wave03 = [
         [B, B, B, B2, R, R, R, R],
         [B, B, B, B2, W, W, W, W],
         [R, R, R, R2, R, R, R, R],
@@ -140,9 +121,9 @@ def waving_flag():
         [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
         [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
         [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF]
-        ]
+    ]
 
-    wave4 = [
+    wave04 = [
         [B, B, B, B, R2, R, R, R],
         [B, B, B, B, W2, W, W, W],
         [R, R, R, R, R2, R, R, R],
@@ -152,9 +133,9 @@ def waving_flag():
         [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
         [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
         [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF]
-        ]
+    ]
 
-    wave5 = [
+    wave05 = [
         [B, B, B, B, R, R2, R, R],
         [B, B, B, B, W, W2, W, W],
         [R, R, R, R, R, R2, R, R],
@@ -164,9 +145,9 @@ def waving_flag():
         [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
         [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
         [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF]
-        ]
+    ]
 
-    wave6 = [
+    wave06 = [
         [B, B, B, B, R, R, R2, R],
         [B, B, B, B, W, W, W2, W],
         [R, R, R, R, R, R, R2, R],
@@ -176,9 +157,9 @@ def waving_flag():
         [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
         [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
         [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF]
-        ]
+    ]
 
-    wave7 = [
+    wave07 = [
         [B, B, B, B, R, R, R, R2],
         [B, B, B, B, W, W, W, W2],
         [R, R, R, R, R, R, R, R2],
@@ -188,41 +169,34 @@ def waving_flag():
         [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
         [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF],
         [OFF, OFF, OFF, OFF, OFF, OFF, OFF, OFF]
-        ]
+    ]
 
-    unicornhat.set_pixels(wave0)
-    unicornhat.show()
-    sleep(0.05)
-    unicornhat.set_pixels(wave1)
-    unicornhat.show()
-    sleep(0.05)
-    unicornhat.set_pixels(wave2)
-    unicornhat.show()
-    sleep(0.05)
-    unicornhat.set_pixels(wave3)
-    unicornhat.show()
-    sleep(0.05)
-    unicornhat.set_pixels(wave4)
-    unicornhat.show()
-    sleep(0.05)
-    unicornhat.set_pixels(wave5)
-    unicornhat.show()
-    sleep(0.05)
-    unicornhat.set_pixels(wave6)
-    unicornhat.show()
-    sleep(0.05)
-    unicornhat.set_pixels(wave7)
-    unicornhat.show()
-    sleep(0.05)
+    waves = [wave00, wave01, wave02, wave03, wave04, wave05,
+             wave06, wave07]
+
+
+    # Loop through the rainbows so they appear to move
+    for wave in waves:
+        unicornhat.set_pixels(wave)
+        unicornhat.show()
+        sleep(0.05)
 
 
 def stop():
     """
-    Print exit message and turn OFF the UnicornHAT
+    Print exit message and turn off the UnicornHAT
     """
     print("\nExiting program.")
     unicornhat.off()
 
 
 if __name__ == '__main__':
-    main()
+    # Force white text after selecting random colored header
+    print("\033[1;37;40mPress Ctrl-C to stop the program.")
+
+    try:
+        while True:
+            display_flag()
+            waving_flag()
+    except KeyboardInterrupt:
+        stop()
